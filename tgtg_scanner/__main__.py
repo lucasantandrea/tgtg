@@ -297,8 +297,9 @@ def _print_welcome_message() -> None:
 
 def _register_signals() -> None:
     # TODO: Define SIGUSR1, SIGUSR2
-    signal.signal(signal.SIGINT, _handle_exit_signal)
-    signal.signal(signal.SIGTERM, _handle_exit_signal)
+    if threading.current_thread() is threading.main_thread():
+        signal.signal(signal.SIGINT, _handle_exit_signal)
+        signal.signal(signal.SIGTERM, _handle_exit_signal)
     if hasattr(signal, "SIGBREAK"):
         signal.signal(getattr(signal, "SIGBREAK"), _handle_exit_signal)
     if not IS_WINDOWS:

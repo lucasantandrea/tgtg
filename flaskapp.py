@@ -7,10 +7,6 @@ sys.path.append(os.path.dirname(__file__))
 # Importa il modulo __main__
 import __main__
 
-
-
-------------------
-
 from flask import Flask, jsonify
 
 app = Flask(__name__)

@@ -9,6 +9,7 @@ import signal
 import sys
 from pathlib import Path
 from typing import Any, NoReturn, Union
+import threading
 
 import colorlog
 import requests
